@@ -28,7 +28,8 @@ this will schedule every 15 days a renewal of the ssl cert. with let's encrypt.
 2. `0 0 */15 * *  /path/to/registry_files/ssl_renew.sh`
 
 ### need to install docker in your VPS machine?
-https://docs.docker.com/compose/install/
+https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
 https://docs.docker.com/compose/install/
 
 #
