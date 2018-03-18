@@ -2,8 +2,11 @@
 Make sure you have a domain name, ssh access.
 
 
-### this works well undera VPS (digitalocean ubuntu with docker and docker-compose installed)
-use my digitalocean referal: https://m.do.co/c/66153854bc56
+### this works well under a digitalocean's ubuntu with docker and docker-compose installed
+use my digitalocean referal: :) 
+
+https://m.do.co/c/66153854bc56
+
 
 ## Steps
 
@@ -17,7 +20,7 @@ use my digitalocean referal: https://m.do.co/c/66153854bc56
 
 # automatic cron setup
 this will schedule every 15 days a renewal of the ssl cert. with let's encrypt.
-1. crontab -u $USER -e
+1. `crontab -u $USER -e`
 2. `0 0 */15 * *  /path/to/registry_files/ssl_renew.sh`
 
 ### need to install docker in your VPS machine?
