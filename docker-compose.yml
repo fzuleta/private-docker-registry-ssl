@@ -1,0 +1,48 @@
+version: "3.4"
+
+services:
+  nginx:
+    container_name: nginx
+    image: my_docker_registry:latest 
+    build:
+      context: ./nginx
+      args:
+        - REGISTRY_USER=user
+        - REGISTRY_PASSWORD=password
+        - DOMAIN=my_domain.com
+      dockerfile: ./nginx.dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./certs:/etc/letsencrypt
+      - ./certs-data:/data/letsencrypt
+    networks:
+      - my-registry-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1000k"
+        max-file: "3"
+
+  registry:
+    container_name: registry
+    image: registry:2
+    ports:
+      - 127.0.0.1:5000:5000
+    environment:
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+    volumes:
+      - ./data:/data
+    networks:
+      - my-registry-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1000k"
+        max-file: "3"
+
+networks:
+  my-registry-network:
+    driver: bridge
+
