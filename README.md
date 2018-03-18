@@ -15,8 +15,12 @@ https://m.do.co/c/66153854bc56
 2. `docker-compose up -d`
 3. `chmod +x *.sh`
 4. `./ssl_gen.sh`  
-4. if it succeds > `docker-compose restart`
+4. if it succedes > `docker-compose restart`
 
+## after it succedes:
+1. from your local machine (or another) add your repo url to the `insecure-registries` (instructions: https://docs.docker.com/registry/insecure/)
+2. docker login my-repo-url.com give your user name/pass
+3. it should say `Login Succeeded`
 
 # automatic cron setup
 this will schedule every 15 days a renewal of the ssl cert. with let's encrypt.
