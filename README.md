@@ -1,15 +1,14 @@
-# Easy setup for private Docker repository with Let's Encrypt SSL, Steps:
+# 5-step setup for private Docker repository with Let's Encrypt SSL, Steps:
 Make sure you have a domain name, ssh access to an instance.
 This works well under a DigitalOcean's Ubuntu with Docker and docker-compose installed.
 
 ## Steps
 
-1. Set in `docker-compose.yml` the **REGISTRY_USER, REGISTRY_PASSWORD and DOMAIN** on the nginx args. (tip. avoid `=` on values)
+1. Set in `docker-compose.yml` the **REGISTRY_USER, REGISTRY_PASSWORD and DOMAIN** on the nginx args.
 2. On `ssl_gen` set **DOMAIN** value with your domain.
-2. `docker-compose up -d`
-3. `chmod +x *.sh`
-4. `./ssl_gen.sh`  
-4. After it succeeds > `docker-compose restart`
+3. `docker-compose up -d`
+4. `chmod +x *.sh && ./ssl_gen.sh`  
+5. After it succeeds > `docker-compose restart`
 
 ## After it succeeds:
 1. From your local machine (or another) add your repo url to the `insecure-registries` (instructions: https://docs.docker.com/registry/insecure/)
