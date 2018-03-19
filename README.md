@@ -1,4 +1,5 @@
-# 5-step setup for private Docker repository with Let's Encrypt SSL, Steps:
+# Five-step setup for private Docker repository with Let's Encrypt SSL
+
 Make sure you have a domain name, ssh access to an instance.
 This works well under a DigitalOcean's Ubuntu with Docker and docker-compose installed.
 
