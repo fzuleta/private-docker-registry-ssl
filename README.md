@@ -1,11 +1,10 @@
 # Five-step setup for private Docker repository with Let's Encrypt SSL
 
-Make sure you have a domain name, ssh access to an instance.
-This works well under a DigitalOcean's Ubuntu with Docker and docker-compose installed.
+Make sure you have a domain name and SSH access to an instance. This works well under a DigitalOcean's Ubuntu with Docker and Docker Compose installed.
 
 ## Steps
 
-1. Set in `docker-compose.yml` the **REGISTRY_USER, REGISTRY_PASSWORD and DOMAIN** on the nginx args.
+1. Set in `docker-compose.yml` the **REGISTRY_USER, REGISTRY_PASSWORD and DOMAIN** on the Nginx args.
 2. On `ssl_gen` set **DOMAIN** value with your domain.
 3. `docker-compose up -d`
 4. `chmod +x *.sh && ./ssl_gen.sh`  
@@ -17,7 +16,7 @@ This works well under a DigitalOcean's Ubuntu with Docker and docker-compose ins
 3. It should say `Login Succeeded`
 
 # Automatic cron setup
-This will schedule every 15 days a renewal of the ssl cert. with Let's Encrypt.
+This will schedule every 15 days a renewal of the SSL cert with Let's Encrypt.
 1. `crontab -u $USER -e`
 2. `0 0 */15 * *  /path/to/registry_files/ssl_renew.sh`
 
@@ -26,7 +25,4 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
 https://docs.docker.com/compose/install/
 
-#
 ### Be sure to donate to **letsencrypt.org** !
-
-
