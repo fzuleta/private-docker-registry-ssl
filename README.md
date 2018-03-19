@@ -8,15 +8,17 @@ Make sure you have a domain name and SSH access to an instance. This works well 
 2. On `ssl_gen` set **DOMAIN** value with your domain.
 3. `docker-compose up -d`
 4. `chmod +x *.sh && ./ssl_gen.sh`  
-5. After it succeeds > `docker-compose restart`
+5. After it succeeds, start it with `docker-compose restart`
 
-## After it succeeds:
+## After it succeeds
+
 1. From your local machine (or another) add your repo url to the `insecure-registries` (instructions: https://docs.docker.com/registry/insecure/)
 2. `docker login my-repo-url.com` give your user name/pass
 3. It should say `Login Succeeded`
 
 # Automatic cron setup
-This will schedule every 15 days a renewal of the SSL cert with Let's Encrypt.
+
+This will schedule a renewal of the SSL cert with Let's Encrypt every 15 days.
 1. `crontab -u $USER -e`
 2. `0 0 */15 * *  /path/to/registry_files/ssl_renew.sh`
 
