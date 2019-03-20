@@ -11,10 +11,8 @@ Make sure you have a domain name and SSH access to an instance. This works well 
 5. After it succeeds, start it with `docker-compose restart`
 
 ## After it succeeds
-
-1. From your local machine (or another) add your repo url to the `insecure-registries` (instructions: https://docs.docker.com/registry/insecure/)
-2. `docker login my-repo-url.com` give your user name/pass
-3. It should say `Login Succeeded`
+1. `docker login my-repo-url.com` give your user name/pass
+2. It should say `Login Succeeded`
 
 # Automatic cron setup
 
